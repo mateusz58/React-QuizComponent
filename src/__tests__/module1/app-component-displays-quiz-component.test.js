@@ -16,10 +16,10 @@ try {
 let fs = require('fs');
 
 describe('App Component', () => {
-  it('renders Quiz component @app-component-displays-quiz-component', () => {
-    assert(quizComponentExists, "The Quiz component hasn't been created yet.")
+  it('renders QuizQuestion component @app-component-displays-quiz-component', () => {
+    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
 
     let app = mount(<App />)
-    assert(app.contains(<Quiz />), "The App component is not rendering the Quiz component.")
+    assert(app.contains(<Quiz />), "The App component is not rendering the QuizQuestion component.")
   });
 })

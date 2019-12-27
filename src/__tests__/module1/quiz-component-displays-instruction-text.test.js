@@ -25,15 +25,15 @@ try {
 let fs = require('fs');
 let quizData = require('../../quiz_data.json')
 
-describe('Quiz Component', () => {
+describe('QuizQuestion Component', () => {
   it('displays the instruction text from JSON data @quiz-component-displays-instruction-text', () => {
-    assert(quizComponentExists, "The Quiz component hasn't been created yet.")
+    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
 
     let quiz;
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the Quiz component.")      
+      assert(false, "We weren't able to mount the QuizQuestion component.")
     }
 
     if (quiz.find('.QuizQuestion').length > 0) {

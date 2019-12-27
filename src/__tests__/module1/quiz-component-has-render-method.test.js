@@ -25,15 +25,15 @@ try {
 let fs = require('fs');
 let quizData = require('../../quiz_data.json')
 
-describe('Quiz Component', () => {
-  it('has a render method that returns a single div with the text `Quiz`  @quiz-component-has-render-method', () => {
-    assert(quizComponentExists, "The Quiz component hasn't been created yet.")
+describe('QuizQuestion Component', () => {
+  it('has a render method that returns a single div with the text `QuizQuestion`  @quiz-component-has-render-method', () => {
+    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
 
     let quiz;
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the Quiz component.")      
+      assert(false, "We weren't able to mount the QuizQuestion component.")
     }
 
     if (quiz.containsMatchingElement(<div className="QuizQuestion"></div>)) {
@@ -51,7 +51,7 @@ describe('Quiz Component', () => {
       }
     } else {
       // this block will run until @quiz-component-has-quiz-question-div
-      assert(quiz.containsMatchingElement(<div>Quiz</div>), "The Quiz component isn't rendering a single div with the text `Quiz`.")
+      assert(quiz.containsMatchingElement(<div>Quiz</div>), "The QuizQuestion component isn't rendering a single div with the text `QuizQuestion`.")
     }
   })
 })

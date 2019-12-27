@@ -27,7 +27,7 @@ let quizData = require('../../quiz_data.json')
 
 describe('QuizQuestion Component', () => {
   it('displays correct instruction text @quiz-question-displays-instruction-text', () => {
-    assert(quizComponentExists, "The Quiz component hasn't been created yet.")
+    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
     assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
 
     let quizQuestion;

@@ -34,7 +34,7 @@ try {
 
 describe('QuizQuestion Component', () => {
   it('handleClick method has conditional that checks argument and called clickHandler @quiz-question-handle-click-method-returns-correct-value', () => {
-    assert(quizComponentExists, "The Quiz component hasn't been created yet.")
+    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
     assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
     assert(quizQuestionButtonComponentExists, "The QuizQuestionButton component hasn't been created yet.")
 
@@ -42,7 +42,7 @@ describe('QuizQuestion Component', () => {
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the Quiz component.")
+      assert(false, "We weren't able to mount the QuizQuestion component.")
     }
 
     let spy
@@ -56,7 +56,7 @@ describe('QuizQuestion Component', () => {
     try {
       spy2 = sinon.spy(Quiz.prototype, 'showNextQuestion')
     } catch (e) {
-      assert(false, "There's not a method named `showNextQuestion()` in the Quiz class.")
+      assert(false, "There's not a method named `showNextQuestion()` in the QuizQuestion class.")
     }
 
     let mockedPropHandler = sinon.spy()

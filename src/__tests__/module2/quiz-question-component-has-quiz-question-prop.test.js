@@ -25,19 +25,19 @@ try {
 let fs = require('fs');
 let quizData = require('../../quiz_data.json')
 
-describe('Quiz Component', () => {
+describe('QuizQuestion Component', () => {
   it('has QuizQuestion component with correct prop @quiz-question-component-has-quiz-question-prop', () => {
     assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
-    assert(quizComponentExists, "The Quiz component hasn't been created yet.")
+    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
 
     let quiz;
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the Quiz component.")
+      assert(false, "We weren't able to mount the QuizQuestion component.")
     }
 
-    assert(quiz.find('QuizQuestion').length == 1, "We couldn't find the QuizQuestion component being loaded by the Quiz component.")
+    assert(quiz.find('QuizQuestion').length == 1, "We couldn't find the QuizQuestion component being loaded by the QuizQuestion component.")
     assert(quiz.find('QuizQuestion').props().quiz_question != null, "The QuizQuestion component exists, but there's no prop named `quiz_question`.")
     assert(quiz.find('QuizQuestion').props().quiz_question == quizData.quiz_questions[0], "The QuizQuestion component has a prop named `quiz_question`, but it doesn't contain the correct value.")
   })

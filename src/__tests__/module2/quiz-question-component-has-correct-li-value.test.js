@@ -27,7 +27,7 @@ let quizData = require('../../quiz_data.json')
 
 describe('QuizQuestion Component', () => {
   it('has li tag with correct value @quiz-question-component-has-correct-li-value', () => {
-    assert(quizComponentExists, "The Quiz component hasn't been created yet.")
+    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
     assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
 
     let quizQuestion;

@@ -24,18 +24,18 @@ try {
 
 let fs = require('fs');
 
-describe('Quiz Component', () => {
+describe('QuizQuestion Component', () => {
   it('displays the QuizQuestion component @quiz-component-displays-quiz-question-component', () => {
     assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
-    assert(quizComponentExists, "The Quiz component hasn't been created yet.")
+    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
 
     let quiz;
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the Quiz component.")      
+      assert(false, "We weren't able to mount the QuizQuestion component.")
     }
 
-    assert(quiz.find('QuizQuestion').length == 1, "We couldn't find the QuizQuestion component being loaded by the Quiz component.")
+    assert(quiz.find('QuizQuestion').length == 1, "We couldn't find the QuizQuestion component being loaded by the QuizQuestion component.")
   })
 })

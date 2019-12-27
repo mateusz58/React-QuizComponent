@@ -34,7 +34,7 @@ describe('QuizEnd Component', () => {
     assert(div.querySelector('div p') != null, "We can't find a `p` tag that's a child of a `div` tag in the QuizEnd component's JSX.")
     assert(div.querySelector('div a') != null, "We can't find an `a` tag that's a child of a `div` tag in the QuizEnd component's JSX.")
     assert(div.querySelector('div p').innerHTML == "Thanks for playing!", "We found a paragraph tag in the QuizEnd component's JSX, but it has the incorrect text value.")
-    assert(div.querySelector('div a').innerHTML == "Reset Quiz", "We found an anchor tag in the QuizEnd component's JSX, but it has the incorrect text value.")
+    assert(div.querySelector('div a').innerHTML == "Reset QuizQuestion", "We found an anchor tag in the QuizEnd component's JSX, but it has the incorrect text value.")
     assert(div.querySelector('div a').getAttribute('href') == '', "We found a anchor tag in the QuizEnd component's JSX, but it has the incorrect value for the `href` attribute.")
   })
 })
