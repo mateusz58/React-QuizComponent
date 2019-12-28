@@ -7,7 +7,7 @@ import { assert } from 'chai';
 let quizQuestionComponentExists = false;
 let QuizQuestion;
 try {
-  QuizQuestion = require('../../QuizQuestion.js').default;
+  QuizQuestion = require('../../InvoiceEntry.js').default;
   quizQuestionComponentExists = true;
 } catch (e) {
   quizQuestionComponentExists = false;
@@ -25,9 +25,9 @@ try {
 let fs = require('fs');
 let quizData = require('../../quiz_data.json')
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('has QuizQuestionButton components with correct props @quiz-question-button-components-have-correct-props', () => {
-    assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
+    assert(quizQuestionComponentExists, "The InvoiceEntry component hasn't been created yet.")
     assert(quizQuestionButtonComponentExists, "The QuizQuestionButton component hasn't been created yet.")
 
     let quizQuestion;
@@ -40,7 +40,7 @@ describe('QuizQuestion Component', () => {
     try {
       quizQuestion = shallow(<QuizQuestion quiz_question={mock_prop} />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")      
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
     let expectedPropsFirst = {
@@ -53,7 +53,7 @@ describe('QuizQuestion Component', () => {
     }
 
     if (quizQuestion.find('QuizQuestionButton').length == 1) {
-      assert(false, "The QuizQuestion component isn't displaying multiple QuizQuestionButton components.")
+      assert(false, "The InvoiceEntry component isn't displaying multiple QuizQuestionButton components.")
       // this shouldn't run after @quiz-question-component-maps-multiple-button-components
     } else if (quizQuestion.find('QuizQuestionButton').length > 1) {
       // this will run after @quiz-question-component-maps-multiple-button-components
@@ -65,7 +65,7 @@ describe('QuizQuestion Component', () => {
         assert(JSON.stringify(n.props()) == JSON.stringify(expectedProps), "It doesn't look like the QuizQuestionButton component's `button_text` props have the correct values.")
       })
     } else {
-      assert(false, "Your QuizQuestion component isn't rendering any QuizQuestionButton components.")
+      assert(false, "Your InvoiceEntry component isn't rendering any QuizQuestionButton components.")
     }
 
   })

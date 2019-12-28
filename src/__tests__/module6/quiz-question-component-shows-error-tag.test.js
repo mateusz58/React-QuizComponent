@@ -7,7 +7,7 @@ import { assert } from 'chai';
 let quizQuestionComponentExists = false;
 let QuizQuestion;
 try {
-  QuizQuestion = require('../../QuizQuestion.js').default;
+  QuizQuestion = require('../../InvoiceEntry.js').default;
   quizQuestionComponentExists = true;
 } catch (e) {
   quizQuestionComponentExists = false;
@@ -15,9 +15,9 @@ try {
 
 let fs = require('fs');
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('shows error paragraph tag if incorrectAnswer is true @quiz-question-component-shows-error-tag', () => {
-    assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
+    assert(quizQuestionComponentExists, "The InvoiceEntry component hasn't been created yet.")
 
     let mock_prop = {
       instruction_text: "How many continents are there on Planet Earth?",
@@ -28,21 +28,21 @@ describe('QuizQuestion Component', () => {
     try {
       quizQuestion = shallow(<QuizQuestion quiz_question={mock_prop} />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
     let expectedState = {
       incorrectAnswer: false
     }
 
-    assert(quizQuestion.state() != null, "The QuizQuestion component isn't starting with the correct default state declared in the constructor function.")
+    assert(quizQuestion.state() != null, "The InvoiceEntry component isn't starting with the correct default state declared in the constructor function.")
 
-    assert(quizQuestion.state().incorrectAnswer != null && quizQuestion.state().incorrectAnswer == false, "The QuizQuestion component's state should start out with a key of `incorrectAnswer` set to `false`.")
+    assert(quizQuestion.state().incorrectAnswer != null && quizQuestion.state().incorrectAnswer == false, "The InvoiceEntry component's state should start out with a key of `incorrectAnswer` set to `false`.")
 
     quizQuestion.setState({ incorrectAnswer: true })
 
-    assert(quizQuestion.state().incorrectAnswer != null && quizQuestion.state().incorrectAnswer == true && quizQuestion.find('.error').length == 1, "When the QuizQuestion component's state has a key of `incorrectAnswer` with a value of `true`, a paragraph tag with the className `error` should be displayed.")
+    assert(quizQuestion.state().incorrectAnswer != null && quizQuestion.state().incorrectAnswer == true && quizQuestion.find('.error').length == 1, "When the InvoiceEntry component's state has a key of `incorrectAnswer` with a value of `true`, a paragraph tag with the className `error` should be displayed.")
 
-    assert(quizQuestion.find('.error').text() != '', "When the QuizQuestion component's state has a key of `incorrectAnswer` with a value of `true`, a paragraph tag with the className `error` with some error message text should be displayed.")
+    assert(quizQuestion.find('.error').text() != '', "When the InvoiceEntry component's state has a key of `incorrectAnswer` with a value of `true`, a paragraph tag with the className `error` with some error message text should be displayed.")
   })
 })

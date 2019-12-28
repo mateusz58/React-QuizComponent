@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import './App.css'
-import Quiz from './Quiz.js'
-//tert
+import Invoice from './Invoice.js'
 class App extends Component {
   render() {
     return (
-      <Quiz />
+      <Invoice />
     )
   }
 }

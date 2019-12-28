@@ -25,21 +25,21 @@ try {
 
 describe('QuizEnd Component', () => {
   it('handleResetClick method called resetClickHandler @quiz-end-handle-click-method-returns-correct-value', () => {
-    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
+    assert(quizComponentExists, "The InvoiceEntry component hasn't been created yet.")
     assert(quizEndComponentExists, "The QuizEnd component hasn't been created yet.")
 
     let quiz
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
     let quiz_spy
     try {
       quiz_spy = sinon.spy(Quiz.prototype, 'handleResetClick')
     } catch (e) {
-      assert(false, "There's not a method named `handleResetClick()` in the QuizQuestion class.")
+      assert(false, "There's not a method named `handleResetClick()` in the InvoiceEntry class.")
     }
 
     let quiz_end_spy

@@ -16,7 +16,7 @@ try {
 let quizQuestionComponentExists = false;
 let QuizQuestion;
 try {
-  QuizQuestion = require('../../QuizQuestion.js').default;
+  QuizQuestion = require('../../InvoiceEntry.js').default;
   quizQuestionComponentExists = true;
 } catch (e) {
   quizQuestionComponentExists = false;
@@ -25,22 +25,22 @@ try {
 let fs = require('fs');
 let quizData = require('../../quiz_data.json')
 
-describe('QuizQuestion Component', () => {
-  it('has a render method that returns a single div with the text `QuizQuestion`  @quiz-component-has-render-method', () => {
-    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
+describe('InvoiceEntry Component', () => {
+  it('has a render method that returns a single div with the text `InvoiceEntry`  @quiz-component-has-render-method', () => {
+    assert(quizComponentExists, "The InvoiceEntry component hasn't been created yet.")
 
     let quiz;
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
-    if (quiz.containsMatchingElement(<div className="QuizQuestion"></div>)) {
+    if (quiz.containsMatchingElement(<div className="InvoiceEntry"></div>)) {
       // this block will run after @quiz-component-has-quiz-question-div
-    } else if (quiz.find('.QuizQuestion').getElements().length == 1) {
-      let el = quiz.find('.QuizQuestion').getElements()[0];
-      if (el.props.className == 'QuizQuestion') {
+    } else if (quiz.find('.InvoiceEntry').getElements().length == 1) {
+      let el = quiz.find('.InvoiceEntry').getElements()[0];
+      if (el.props.className == 'InvoiceEntry') {
         if (el.props.children == null) {
           assert(el.props.children == quizData.quiz_questions[0].instruction_text)
         }
@@ -51,7 +51,7 @@ describe('QuizQuestion Component', () => {
       }
     } else {
       // this block will run until @quiz-component-has-quiz-question-div
-      assert(quiz.containsMatchingElement(<div>Quiz</div>), "The QuizQuestion component isn't rendering a single div with the text `QuizQuestion`.")
+      assert(quiz.containsMatchingElement(<div>Quiz</div>), "The InvoiceEntry component isn't rendering a single div with the text `InvoiceEntry`.")
     }
   })
 })

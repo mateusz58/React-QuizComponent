@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class QuizQuestion extends Component {
+class InvoiceEntry extends Component {
 
     constructor(props) {
         super(props);
@@ -25,4 +25,4 @@ class QuizQuestion extends Component {
     }
 }
 
-export default QuizQuestion
+export default InvoiceEntry

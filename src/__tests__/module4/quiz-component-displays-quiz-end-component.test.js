@@ -25,9 +25,9 @@ try {
 let fs = require('fs');
 let babylon = require("babylon");
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('renders QuizEnd component @quiz-component-displays-quiz-end-component', () => {
-    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
+    assert(quizComponentExists, "The InvoiceEntry component hasn't been created yet.")
     assert(quizEndComponentExists, "The QuizEnd component hasn't been created yet.")
 
     let quiz;
@@ -35,13 +35,13 @@ describe('QuizQuestion Component', () => {
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
     if (yallReadyForThis()) {
       // we good
     } else {
-      assert(quiz.find('QuizEnd').length == 1, "We couldn't find the QuizEnd component being loaded by the QuizQuestion component.")
+      assert(quiz.find('QuizEnd').length == 1, "We couldn't find the QuizEnd component being loaded by the InvoiceEntry component.")
     }
   })
 })
@@ -49,9 +49,9 @@ describe('QuizQuestion Component', () => {
 function yallReadyForThis() {
   let file;
   try {
-    file = fs.readFileSync(__dirname + '/../../QuizQuestion.js').toString();
+    file = fs.readFileSync(__dirname + '/../../InvoiceEntry.js').toString();
   } catch (e) {
-    assert(false, "The QuizQuestion.js file hasn't been created yet.")
+    assert(false, "The InvoiceEntry.js file hasn't been created yet.")
   }
 
   let ast = babylon.parse(file, { sourceType: "module", plugins: ["jsx"] })
@@ -62,7 +62,7 @@ function yallReadyForThis() {
 
   ast['program']['body'].forEach(element => {
     if (element.type == 'ClassDeclaration') {
-      if (element.id.name == 'QuizQuestion') {
+      if (element.id.name == 'InvoiceEntry') {
         element.body.body.forEach(el => {
           if (el.kind == 'method') {
             if (el.key.name == 'render') {

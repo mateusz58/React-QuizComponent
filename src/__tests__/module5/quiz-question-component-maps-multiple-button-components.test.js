@@ -7,7 +7,7 @@ import { assert } from 'chai';
 let quizQuestionComponentExists = false;
 let QuizQuestion;
 try {
-  QuizQuestion = require('../../QuizQuestion.js').default;
+  QuizQuestion = require('../../InvoiceEntry.js').default;
   quizQuestionComponentExists = true;
 } catch (e) {
   quizQuestionComponentExists = false;
@@ -16,9 +16,9 @@ try {
 let fs = require('fs');
 let babylon = require("babylon");
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('renders multiple button components by using the map function @quiz-question-component-maps-multiple-button-components', () => {
-    assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
+    assert(quizQuestionComponentExists, "The InvoiceEntry component hasn't been created yet.")
 
     let quizQuestion;
 
@@ -29,7 +29,7 @@ describe('QuizQuestion Component', () => {
     try {
       quizQuestion = shallow(<QuizQuestion quiz_question={mock_prop} />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
     let nodes = quizQuestion.find('QuizQuestionButton')
@@ -37,9 +37,9 @@ describe('QuizQuestion Component', () => {
 
     let file;
     try {
-      file = fs.readFileSync(__dirname + '/../../QuizQuestion.js').toString();
+      file = fs.readFileSync(__dirname + '/../../InvoiceEntry.js').toString();
     } catch (e) {
-      assert(false, "The QuizQuestion.js file hasn't been created yet.")
+      assert(false, "The InvoiceEntry.js file hasn't been created yet.")
     }
 
     let re = /props.quiz_question.answer_options.map/g

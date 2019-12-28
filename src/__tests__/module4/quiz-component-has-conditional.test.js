@@ -17,22 +17,22 @@ let fs = require('fs');
 let quizData = require('../../quiz_data.json')
 let babylon = require("babylon");
 
-describe('QuizQuestion Component', () => {
-  it('renders QuizEnd or QuizQuestion component based on condition @quiz-component-has-conditional', () => {
-    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
+describe('InvoiceEntry Component', () => {
+  it('renders QuizEnd or InvoiceEntry component based on condition @quiz-component-has-conditional', () => {
+    assert(quizComponentExists, "The InvoiceEntry component hasn't been created yet.")
 
     let quiz;
 
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
     if (yallReadyForThis()) {
-      assert(quiz.find('QuizQuestion').length == 1 && quiz.find('QuizEnd').length == 0, "QuizQuestion should be displaying when isQuizEnd is false.")
+      assert(quiz.find('InvoiceEntry').length == 1 && quiz.find('QuizEnd').length == 0, "InvoiceEntry should be displaying when isQuizEnd is false.")
       quiz.setState({quiz_position: quizData.quiz_questions.length+1 })
-      assert(quiz.find('QuizQuestion').length == 0 && quiz.find('QuizEnd').length == 1, "QuizEnd should be displaying when isQuizEnd is true.")      
+      assert(quiz.find('InvoiceEntry').length == 0 && quiz.find('QuizEnd').length == 1, "QuizEnd should be displaying when isQuizEnd is true.")
     } else {
       assert(false, "We couldn't find a const named `isQuizEnd`.")
     }
@@ -43,9 +43,9 @@ describe('QuizQuestion Component', () => {
 function yallReadyForThis() {
   let file;
   try {
-    file = fs.readFileSync(__dirname + '/../../QuizQuestion.js').toString();
+    file = fs.readFileSync(__dirname + '/../../InvoiceEntry.js').toString();
   } catch (e) {
-    assert(false, "The QuizQuestion.js file hasn't been created yet.")
+    assert(false, "The InvoiceEntry.js file hasn't been created yet.")
   }
 
   let ast = babylon.parse(file, { sourceType: "module", plugins: ["jsx"] })
@@ -56,7 +56,7 @@ function yallReadyForThis() {
 
   ast['program']['body'].forEach(element => {
     if (element.type == 'ClassDeclaration') {
-      if (element.id.name == 'QuizQuestion') {
+      if (element.id.name == 'InvoiceEntry') {
         element.body.body.forEach(el => {
           if (el.kind == 'method') {
             if (el.key.name == 'render') {

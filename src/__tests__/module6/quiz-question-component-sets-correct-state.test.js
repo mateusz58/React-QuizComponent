@@ -17,7 +17,7 @@ try {
 let quizQuestionComponentExists = false;
 let QuizQuestion;
 try {
-  QuizQuestion = require('../../QuizQuestion.js').default;
+  QuizQuestion = require('../../InvoiceEntry.js').default;
   quizQuestionComponentExists = true;
 } catch (e) {
   quizQuestionComponentExists = false;
@@ -32,24 +32,24 @@ try {
   quizQuestionButtonComponentExists = false;
 }
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('handleClick method has conditional that checks argument and called clickHandler @quiz-question-component-sets-correct-state', () => {
-    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
-    assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
+    assert(quizComponentExists, "The InvoiceEntry component hasn't been created yet.")
+    assert(quizQuestionComponentExists, "The InvoiceEntry component hasn't been created yet.")
     assert(quizQuestionButtonComponentExists, "The QuizQuestionButton component hasn't been created yet.")
 
     let spy
     try {
       spy = sinon.spy(QuizQuestion.prototype, 'handleClick')
     } catch (e) {
-      assert(false, "There's not a method named `handleClick()` in the QuizQuestion class.")
+      assert(false, "There's not a method named `handleClick()` in the InvoiceEntry class.")
     }
 
     let spy2
     try {
       spy2 = sinon.spy(Quiz.prototype, 'showNextQuestion')
     } catch (e) {
-      assert(false, "There's not a method named `showNextQuestion()` in the QuizQuestion class.")
+      assert(false, "There's not a method named `showNextQuestion()` in the InvoiceEntry class.")
     }
 
     let mockedPropHandler = sinon.spy()
@@ -64,7 +64,7 @@ describe('QuizQuestion Component', () => {
     try {
       quizQuestion = shallow(<QuizQuestion quiz_question={mock_prop} showNextQuestionHandler={spy2} />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
     let expectedStateBefore = {
@@ -74,14 +74,14 @@ describe('QuizQuestion Component', () => {
       incorrectAnswer: true
     }
 
-    assert(JSON.stringify(quizQuestion.state()) == JSON.stringify(expectedStateBefore), "The QuizQuestion component's state should start out with a key of `incorrectAnswer` that has a value of `false`.")
+    assert(JSON.stringify(quizQuestion.state()) == JSON.stringify(expectedStateBefore), "The InvoiceEntry component's state should start out with a key of `incorrectAnswer` that has a value of `false`.")
     try {
       quizQuestion.instance().handleClick('5')
     } catch (e) {
       
     }
-    assert(JSON.stringify(quizQuestion.state()) != JSON.stringify(expectedStateAfter), "The QuizQuestion components state key of `incorrectAnswer` should not be set to `true` unless the correct answer is clicked.")
+    assert(JSON.stringify(quizQuestion.state()) != JSON.stringify(expectedStateAfter), "The InvoiceEntry components state key of `incorrectAnswer` should not be set to `true` unless the correct answer is clicked.")
     quizQuestion.instance().handleClick('3')
-    assert(JSON.stringify(quizQuestion.state()) == JSON.stringify(expectedStateAfter), "The QuizQuestion components state key of `incorrectAnswer` should be `true` after the button that contains the correct answer is clicked.")
+    assert(JSON.stringify(quizQuestion.state()) == JSON.stringify(expectedStateAfter), "The InvoiceEntry components state key of `incorrectAnswer` should be `true` after the button that contains the correct answer is clicked.")
   })
 })

@@ -7,7 +7,7 @@ import { assert } from 'chai';
 let quizQuestionComponentExists = false;
 let QuizQuestion;
 try {
-  QuizQuestion = require('../../QuizQuestion.js').default;
+  QuizQuestion = require('../../InvoiceEntry.js').default;
   quizQuestionComponentExists = true;
 } catch (e) {
   quizQuestionComponentExists = false;
@@ -24,9 +24,9 @@ try {
 
 let fs = require('fs');
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('has QuizQuestionButton component with correct prop @quiz-question-button-component-has-button-text-prop', () => {
-    assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
+    assert(quizQuestionComponentExists, "The InvoiceEntry component hasn't been created yet.")
     assert(quizQuestionButtonComponentExists, "The QuizQuestionButton component hasn't been created yet.")
 
     let quizQuestion;
@@ -39,7 +39,7 @@ describe('QuizQuestion Component', () => {
     try {
       quizQuestion = shallow(<QuizQuestion quiz_question={mock_prop} />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")      
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
     let expectedProps = {
@@ -50,7 +50,7 @@ describe('QuizQuestion Component', () => {
     } else if (quizQuestion.find('QuizQuestionButton').length == 4) {
       
     } else {
-      assert(false, "We don't see the QuizQuestionButton element in the QuizQuestion component's JSX.")
+      assert(false, "We don't see the QuizQuestionButton element in the InvoiceEntry component's JSX.")
     }
 
   })

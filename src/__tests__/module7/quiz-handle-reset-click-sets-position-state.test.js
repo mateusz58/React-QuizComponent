@@ -17,28 +17,28 @@ try {
 let fs = require('fs');
 let babylon = require('babylon')
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('handleResetClick() method sets the quiz_position to 1 @quiz-handle-reset-click-sets-position-state', () => {
-    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
+    assert(quizComponentExists, "The InvoiceEntry component hasn't been created yet.")
 
     let quiz;
 
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
     quiz.setState({ quiz_position: 3 })
 
-    assert(quiz.state().quiz_position == 3, "The QuizQuestion component's state does not have a key named `quiz_position` with the correct value - are you sure you're still setting the component's state to `quizData`?")
+    assert(quiz.state().quiz_position == 3, "The InvoiceEntry component's state does not have a key named `quiz_position` with the correct value - are you sure you're still setting the component's state to `quizData`?")
 
     try {
       quiz.instance().handleResetClick()
     } catch (e) {
-      assert(false, "There's not a method named `handleResetClick()` in the QuizQuestion class.")
+      assert(false, "There's not a method named `handleResetClick()` in the InvoiceEntry class.")
     }
 
-    assert(quiz.state().quiz_position == 1, "The QuizQuestion component state's `quiz_position` value is not being reset to 1 when the `handleResetClick()` method is called.")
+    assert(quiz.state().quiz_position == 1, "The InvoiceEntry component state's `quiz_position` value is not being reset to 1 when the `handleResetClick()` method is called.")
   })
 })

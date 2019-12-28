@@ -8,7 +8,7 @@ let fs = require('fs');
 let babylon = require('babylon')
 
 describe('App Component', () => {
-  it('imports QuizQuestion from QuizQuestion.js @app-component-imports-quiz-component', () => {
+  it('imports InvoiceEntry from InvoiceEntry.js @app-component-imports-quiz-component', () => {
     let appFile;
     try {
       appFile = fs.readFileSync(__dirname + '/../../App.js').toString();
@@ -18,9 +18,9 @@ describe('App Component', () => {
 
     let quizFile;
     try {
-      quizFile = fs.readFileSync(__dirname + '/../../QuizQuestion.js').toString();
+      quizFile = fs.readFileSync(__dirname + '/../../InvoiceEntry.js').toString();
     } catch (e) {
-      assert(false, "The QuizQuestion.js file hasn't been created yet.")
+      assert(false, "The InvoiceEntry.js file hasn't been created yet.")
     }
 
     let ast = babylon.parse(appFile, { sourceType: "module", plugins: ["jsx"] })
@@ -29,12 +29,12 @@ describe('App Component', () => {
 
     ast['program']['body'].forEach(element => {
       if (element.type == 'ImportDeclaration') {
-        if (element.source.value == './QuizQuestion.js' || element.source.value == './QuizQuestion' || element.source.value == 'QuizQuestion') {
-          assert(element.specifiers[0].local.name == 'QuizQuestion', "You're not importing the QuizQuestion class from the QuizQuestion.js file.")
+        if (element.source.value == './InvoiceEntry.js' || element.source.value == './InvoiceEntry' || element.source.value == 'InvoiceEntry') {
+          assert(element.specifiers[0].local.name == 'InvoiceEntry', "You're not importing the InvoiceEntry class from the InvoiceEntry.js file.")
           quiz_import_found = true
         }
       }
     })
-    assert(quiz_import_found, "You're not importing the QuizQuestion.js file.")
+    assert(quiz_import_found, "You're not importing the InvoiceEntry.js file.")
   });
 })

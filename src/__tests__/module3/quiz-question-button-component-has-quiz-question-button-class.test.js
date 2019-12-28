@@ -22,7 +22,7 @@ describe('QuizQuestionButton Component', () => {
 
     ast['program']['body'].forEach(element => {
       if (element.type == 'ClassDeclaration') {
-        if (element.id.name == 'QuizQuestion') {
+        if (element.id.name == 'InvoiceEntry') {
           if (element.superClass.name == 'Component') {
             
           } else {

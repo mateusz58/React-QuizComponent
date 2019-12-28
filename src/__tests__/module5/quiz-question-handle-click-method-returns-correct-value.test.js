@@ -17,7 +17,7 @@ try {
 let quizQuestionComponentExists = false;
 let QuizQuestion;
 try {
-  QuizQuestion = require('../../QuizQuestion.js').default;
+  QuizQuestion = require('../../InvoiceEntry.js').default;
   quizQuestionComponentExists = true;
 } catch (e) {
   quizQuestionComponentExists = false;
@@ -32,31 +32,31 @@ try {
   quizQuestionButtonComponentExists = false;
 }
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('handleClick method has conditional that checks argument and called clickHandler @quiz-question-handle-click-method-returns-correct-value', () => {
-    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
-    assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
+    assert(quizComponentExists, "The InvoiceEntry component hasn't been created yet.")
+    assert(quizQuestionComponentExists, "The InvoiceEntry component hasn't been created yet.")
     assert(quizQuestionButtonComponentExists, "The QuizQuestionButton component hasn't been created yet.")
 
     let quiz
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
     let spy
     try {
       spy = sinon.spy(QuizQuestion.prototype, 'handleClick')
     } catch (e) {
-      assert(false, "There's not a method named `handleClick()` in the QuizQuestion class.")
+      assert(false, "There's not a method named `handleClick()` in the InvoiceEntry class.")
     }
 
     let spy2
     try {
       spy2 = sinon.spy(Quiz.prototype, 'showNextQuestion')
     } catch (e) {
-      assert(false, "There's not a method named `showNextQuestion()` in the QuizQuestion class.")
+      assert(false, "There's not a method named `showNextQuestion()` in the InvoiceEntry class.")
     }
 
     let mockedPropHandler = sinon.spy()
@@ -71,15 +71,15 @@ describe('QuizQuestion Component', () => {
     try {
       quizQuestion = shallow(<QuizQuestion quiz_question={mock_prop} showNextQuestionHandler={spy2} />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
     quizQuestion.instance().handleClick('3')
-    assert(spy2.called == false, "It doesn't appear that the conditional logic checking if the `buttonText` is equal to `this.props.quiz_question.answer` in the QuizQuestion's `handleClick` method.")
+    assert(spy2.called == false, "It doesn't appear that the conditional logic checking if the `buttonText` is equal to `this.props.quiz_question.answer` in the InvoiceEntry's `handleClick` method.")
     try {
       quizQuestion.instance().handleClick('5')
     } catch (e) {
     }
-    assert(spy2.called == true, "`this.props.showNextQuestionHandler()` is not being called when the `buttonText` is equal to `this.props.quiz_question.answer` in QuizQuestion's `handleClick` method.")
+    assert(spy2.called == true, "`this.props.showNextQuestionHandler()` is not being called when the `buttonText` is equal to `this.props.quiz_question.answer` in InvoiceEntry's `handleClick` method.")
   })
 })

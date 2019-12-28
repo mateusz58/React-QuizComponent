@@ -7,13 +7,13 @@ import { assert } from 'chai';
 let fs = require('fs');
 let babylon = require('babylon')
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('imports the React and Component classes @quiz-question-component-imports-react', () => {
     let file;
     try {
-      file = fs.readFileSync(__dirname + '/../../QuizQuestion.js').toString();
+      file = fs.readFileSync(__dirname + '/../../InvoiceEntry.js').toString();
     } catch (e) {
-      assert(false, "The QuizQuestion.js file hasn't been created yet.")
+      assert(false, "The InvoiceEntry.js file hasn't been created yet.")
     }
 
     let ast = babylon.parse(file, { sourceType: "module", plugins: ["jsx"] })

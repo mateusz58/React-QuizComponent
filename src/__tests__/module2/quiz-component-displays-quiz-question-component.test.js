@@ -16,7 +16,7 @@ try {
 let quizQuestionComponentExists = false;
 let QuizQuestion;
 try {
-  QuizQuestion = require('../../QuizQuestion.js').default;
+  QuizQuestion = require('../../InvoiceEntry.js').default;
   quizQuestionComponentExists = true;
 } catch (e) {
   quizQuestionComponentExists = false;
@@ -24,18 +24,18 @@ try {
 
 let fs = require('fs');
 
-describe('QuizQuestion Component', () => {
-  it('displays the QuizQuestion component @quiz-component-displays-quiz-question-component', () => {
-    assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
-    assert(quizComponentExists, "The QuizQuestion component hasn't been created yet.")
+describe('InvoiceEntry Component', () => {
+  it('displays the InvoiceEntry component @quiz-component-displays-quiz-question-component', () => {
+    assert(quizQuestionComponentExists, "The InvoiceEntry component hasn't been created yet.")
+    assert(quizComponentExists, "The InvoiceEntry component hasn't been created yet.")
 
     let quiz;
     try {
       quiz = shallow(<Quiz />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestion component.")
+      assert(false, "We weren't able to mount the InvoiceEntry component.")
     }
 
-    assert(quiz.find('QuizQuestion').length == 1, "We couldn't find the QuizQuestion component being loaded by the QuizQuestion component.")
+    assert(quiz.find('InvoiceEntry').length == 1, "We couldn't find the InvoiceEntry component being loaded by the InvoiceEntry component.")
   })
 })

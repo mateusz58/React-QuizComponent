@@ -7,17 +7,17 @@ import { assert } from 'chai';
 let fs = require('fs');
 let babylon = require('babylon')
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('requires quiz_data.json @quiz-component-requires-quiz-json', () => {
     let file;
     try {
-      file = fs.readFileSync(__dirname + '/../../QuizQuestion.js').toString();
+      file = fs.readFileSync(__dirname + '/../../InvoiceEntry.js').toString();
     } catch (e) {
-      assert(false, "The QuizQuestion.js file hasn't been created yet.")
+      assert(false, "The InvoiceEntry.js file hasn't been created yet.")
     }
 
     let ast = babylon.parse(file, { sourceType: "module", plugins: ["jsx"] })
-    assert(ast.program.body, "We can't find any code in the QuizQuestion.js file.")
+    assert(ast.program.body, "We can't find any code in the InvoiceEntry.js file.")
 
     let quiz_data_loaded_correctly = false;
 

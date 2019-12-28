@@ -7,14 +7,14 @@ import { assert } from 'chai';
 let fs = require('fs');
 let babylon = require('babylon')
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('imports QuizQuestionButton from QuizQuestionButton.js @quiz-question-component-imports-quiz-question-button-component', () => {
 
     let quizQuestionFile;
     try {
-      quizQuestionFile = fs.readFileSync(__dirname + '/../../QuizQuestion.js').toString();
+      quizQuestionFile = fs.readFileSync(__dirname + '/../../InvoiceEntry.js').toString();
     } catch (e) {
-      assert(false, "The QuizQuestion.js file hasn't been created yet.")
+      assert(false, "The InvoiceEntry.js file hasn't been created yet.")
     }
 
     let quizQuestionButtonFile;

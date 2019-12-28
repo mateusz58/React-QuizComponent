@@ -7,13 +7,13 @@ import { assert } from 'chai';
 let fs = require('fs');
 let babylon = require("babylon");
 
-describe('QuizQuestion Component', () => {
+describe('InvoiceEntry Component', () => {
   it('has a const named isQuizEnd that uses state to determine value @quiz-component-has-is-quiz-end-const', () => {
     let file;
     try {
-      file = fs.readFileSync(__dirname + '/../../QuizQuestion.js').toString();
+      file = fs.readFileSync(__dirname + '/../../InvoiceEntry.js').toString();
     } catch (e) {
-      assert(false, "The QuizQuestion.js file hasn't been created yet.")
+      assert(false, "The InvoiceEntry.js file hasn't been created yet.")
     }
 
     let ast = babylon.parse(file, { sourceType: "module", plugins: ["jsx"] })
@@ -24,7 +24,7 @@ describe('QuizQuestion Component', () => {
 
     ast['program']['body'].forEach(element => {
       if (element.type == 'ClassDeclaration') {
-        if (element.id.name == 'QuizQuestion') {
+        if (element.id.name == 'InvoiceEntry') {
           element.body.body.forEach(el => {
             if (el.kind == 'method') {
               if (el.key.name == 'render') {
@@ -53,7 +53,7 @@ describe('QuizQuestion Component', () => {
       }
     })
 
-    assert(found_const == 1, "We couldn't find a const variable in your QuizQuestion component's render method.")
-    assert(is_quiz_end_count == 1, "We couldn't find a const variable named `isQuizEnd` in your QuizQuestion component's render method.")
+    assert(found_const == 1, "We couldn't find a const variable in your InvoiceEntry component's render method.")
+    assert(is_quiz_end_count == 1, "We couldn't find a const variable named `isQuizEnd` in your InvoiceEntry component's render method.")
   })
 })
